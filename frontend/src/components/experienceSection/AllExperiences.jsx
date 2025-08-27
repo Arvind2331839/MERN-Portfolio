@@ -45,8 +45,8 @@ const AllExperiences = () => {
     <div className="flex md:flex-row sm:flex-col items-center justify-between">
       {experiences.map((experience, index) => {
         return (
-          <>
-            <SingleExperience key={index} experience={experience} />
+          <div key={index}>
+            <SingleExperience  experience={experience} />
             {index < 2 ? (
               <motion.div
                 variants={fadeIn("right", 0)}
@@ -59,7 +59,7 @@ const AllExperiences = () => {
             ) : (
               ""
             )}
-          </>
+          </div>
         );
       })}
     </div>

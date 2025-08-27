@@ -12,6 +12,7 @@ const ContactForm = () => {
     e.preventDefault();
 
     try {
+      
       const res = await axios.post("/api/contact", { name, email, message });
       if (res.data.ok) {
         toast.success(res.data.message || "Message sent successfully!", {

@@ -1,17 +1,20 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
+import { defineConfig, loadEnv } from 'vite'
+import react from '@vitejs/plugin-react'
 
-// https://vitejs.dev/config/
-export default defineConfig({
-  plugins: [react()],
-  server: {
-    proxy: {
-      // forward requests starting with /api to backend
-      '/api': {
-        target: 'http://localhost:4000',
-        changeOrigin: true,
-        secure: false,
+export default defineConfig(({ mode }) => {
+  // mode (development / production) ke hisaab se env load hoga
+  const env = loadEnv(mode, process.cwd(), '')
+
+  return {
+    plugins: [react()],
+    server: {
+      proxy: {
+        '/api': {
+          target: env.VITE_API_URL,   // yaha env variable use kar sakte ho
+          changeOrigin: true,
+          secure: false,
+        },
       },
     },
-  },
-});
+  }
+})
