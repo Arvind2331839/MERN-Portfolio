@@ -10,8 +10,8 @@ const { z } = require('zod');
 const app = express();
 
 /* -------------------- Configuration -------------------- */
-const PORT = process.env.PORT || 4000;
-const MONGO_URI = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/portfolio';
+const PORT = process.env.PORT || 5000;
+const MONGO_URI = process.env.MONGO_URI ;
 
 /* -------------------- Middlewares -------------------- */
 app.use(helmet());
@@ -60,8 +60,8 @@ const contactZodSchema = z.object({
 });
 
 /* -------------------- Routes -------------------- */
-app.get('/api/health', (req, res) => {
-  res.json({ ok: true, time: new Date().toISOString() });
+app.get('/api/home', (req, res) => {
+  res.json({ ok: true, message: 'Api running successfully', time: new Date().toISOString() });
 });
 
 app.post('/api/contact', async (req, res) => {
