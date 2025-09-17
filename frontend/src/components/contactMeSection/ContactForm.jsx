@@ -13,7 +13,7 @@ const ContactForm = () => {
 
     try {
       
-      const res = await axios.post("/api/contact", { name, email, message });
+      const res = await axios.post("https://backend.arvindkumar.xyz/api/contact", { name, email, message });
       if (res.data.ok) {
         toast.success(res.data.message || "Message sent successfully!", {
           position: "top-right",

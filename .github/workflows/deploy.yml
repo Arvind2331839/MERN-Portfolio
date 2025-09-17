@@ -1,0 +1,17 @@
+name: Test SSH Connection
+
+on:
+  workflow_dispatch: # manually run karne ke liye
+
+jobs:
+  test-ssh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup SSH
+        uses: webfactory/ssh-agent@v0.7.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_KEY }}
+
+      - name: Test SSH to VPS
+        run: |
+          ssh -o StrictHostKeyChecking=no ${{ secrets.USER }}@${{ secrets.HOST }} "echo '🎉 SSH Connected Successfully!'"
