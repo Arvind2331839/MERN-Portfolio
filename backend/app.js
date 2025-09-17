@@ -61,7 +61,7 @@ const contactZodSchema = z.object({
 
 /* -------------------- Routes -------------------- */
 app.get('/api/home', (req, res) => {
-  res.json({ ok: true, message: 'Api running successfully', time: new Date().toISOString() });
+  res.json({ ok: true, message: 'mr. Arvind Kumar, Api running successfully', time: new Date().toISOString() });
 });
 
 app.post('/api/contact', async (req, res) => {
