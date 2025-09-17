@@ -30,9 +30,9 @@ const ContactForm = () => {
             maxWidth: '300px',
           },
         });
-        // setName("");
-        // setEmail("");
-        // setMessage("");
+        setName("");
+        setEmail("");
+        setMessage("");
       }
     } catch (err) {
       const errMsg = err.response?.data?.error || "Something went wrong. Try again later.";
